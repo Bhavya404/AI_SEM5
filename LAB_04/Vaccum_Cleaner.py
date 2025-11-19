@@ -35,7 +35,7 @@ def vacuum_agent():
             rooms[agent_position] = 'Clean'
             cleaned_rooms.add(agent_position)
         else:
-            print(f"✅ Room {agent_position} is already clean.")
+            print(f"Room {agent_position} is already clean.")
             cleaned_rooms.add(agent_position)
 
         # Decide next move only if not all rooms are clean
@@ -49,7 +49,7 @@ def vacuum_agent():
         steps += 1
         print(f"Step {steps} complete.\n")
 
-    print("🎉 All rooms are clean!")
+    print("All rooms are clean!")
     display_state()
 
 vacuum_agent()
