@@ -2,7 +2,6 @@ from sympy import symbols
 from sympy.logic.boolalg import Implies, And, Or, Not, to_cnf
 from sympy.logic.inference import satisfiable
 
-# Define symbols
 Food = symbols('Food')
 Apple = symbols('Apple')
 Vegetables = symbols('Vegetables')
@@ -13,8 +12,7 @@ Harry_eats_x = symbols('Harry_eats_x')
 Alive_x = symbols('Alive_x')
 Killed_x = symbols('Killed_x')
 
-# Knowledge Base in propositional logic
-# a. John likes all kind of food -> For each food x, John_likes_x if Food(x)
+
 kb = And(
     Implies(Food, John_likes_x),  # a
     Implies(Or(Apple, Vegetables), Food),  # b
@@ -25,14 +23,12 @@ kb = And(
     Implies(Not(Killed_x), Alive_x)  # g
 )
 
-# We want to prove: John likes peanuts -> John_likes_x for Peanuts
-# Assume the negation of the goal for resolution
+
 goal_negation = Not(John_likes_x)
 
-# Combine KB with negated goal
+
 combined = And(kb, goal_negation)
 
-# Check satisfiability
 sat_result = satisfiable(combined)
 
 if sat_result:
